@@ -3,7 +3,15 @@
 (function(){
     var PersonListController = function($scope){
         
-    $scope.persons = [
+        $scope.search = "";
+        $scope.order = "";
+        $scope.selectedIndex = null;
+        $scope.selectedPErson = null;
+        
+        
+    
+        
+        $scope.persons = [
 		{
 			"name": "Gregory Huffman",
 			"email": "Praesent@pedenec.net",
