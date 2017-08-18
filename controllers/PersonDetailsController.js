@@ -6,10 +6,20 @@
         $scope.search = "";
         $scope.order = "";
         $scope.selectedIndex = null;
-        $scope.selectedPErson = null;
+        $scope.selectedPerson = null;
         
+        $scope.selectPerson = function(index, person){
+            $scope.selectedIndex = index;
+            $scope.selectedPErson = person;
+        };
         
-    
+        $scope.sensitiveSearch = function(person, index){
+            if($scope.search){
+                return person.name.indexOf($scope.serach) === 0 ||
+                       person.email.indexOf($scope.search) === 0;
+            }
+            return true;
+        };
         
         $scope.persons = [
 		{
@@ -915,8 +925,7 @@
 	];
     };
     
-    
-    PersonListController.$inject('$scope');
+    PersonListController.$inject = ['$scope'];
     
     angular.module('contactsApp')
         .controller('PersonListController', PersonListController);
